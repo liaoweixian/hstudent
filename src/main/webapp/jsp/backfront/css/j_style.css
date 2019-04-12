@@ -1,0 +1,165 @@
+/*--------------------------------
+*Filename: public_header_footer.css;
+*Description: ;
+*time: 201506015;
+*name: w;
+---------------------------------*/
+#jmain{margin:0;padding:10px 10px 100px 10px;width:100%;height:auto;}
+
+/* backgoundpage.jsp */
+.backgoundpage{}
+.msg_box{line-height:30px;font-size:14px;}
+/*   stock.jsp   入库单  */
+.stock_h3{text-align:center;border-bottom:1px dashed #f1b421;line-height:50px;}
+.stock_p1 label{margin-right:10px;}
+.stock_textar{width:1000px;resize:none;height:60px;}
+.stock_p_size label{font-size:16px;}
+.msg_box_p .dl{margin-right:30px;}
+/* sendmessage.jsp  */
+.sendMsg_left{overflow:hidden;padding:30px;box-sizing:border-box;}
+.sendMsg_hide_Box{overflow:hidden;}
+.sendMsg_hideBox1{margin-bottom:10px;}
+.send_vip_box{margin-bottom:10px;}
+.sendMsg_P{margin-top:10px;}
+.harf{display:inline-block;width:50%;}
+
+/* Ordermanplat.jsp */
+#divsmenu{padding:10px 0;}
+#divsmenu a{border-radius:5px;display:inline-block;padding:3px 10px;color:#337ab7;}
+#divsmenu a.active{color:#ff0000;}
+.order_search{padding:10px 0 0;border:1px solid #dff0d8;overflow:hidden;}
+.order_detail_p1{background:#f2f2f2;padding:0 10px;}
+.order_detail_p1 label{margin:0 20px 0 0;line-height:40px;}
+ul.box_50 li{padding:0 10px;}
+ul.box_50 li label{width:250px;line-height:35px;}
+
+/* orderdetail.jsp */
+.order_detail h3{font-size:18px;line-height:30px;}
+.order_detail .ord_box{border:1px dashed #ddd;border-top:none;width:400px;margin: 0 20px 10px 0;}
+.order_detail .ord_box .p_tit{background:#f5f5f5;color:#337ab7;line-height:40px;padding:0 10px;}
+.order_detail .ord_box .p_tit i{color:#337ab7;}
+.order_detail .ord_box .order_detail_ul{}
+.order_detail .ord_box .order_detail_ul li{line-height:28px;}
+
+/*  Receivingquery.jsp */
+#Receivingquery{}
+
+/* Estimatime.jsp */
+#estimatime .estimatime_wrap{width:500px;margin:30px auto;}
+#estimatime label{text-align:right;vertical-align:top;line-height:30px;}
+#estimatime textarea{width:276px;height:80px;resize:none;}
+
+
+/* exchange.jsp */
+.tabbable{border:1px solid #ccc;border-radius:5px;}
+.exchange_tab{background:#dff0d8;height:40px;padding:0 10px;}
+.exchange_tab .tip{font-size:16px;font-weight:bold;line-height:40px;}
+.exchange_tab .nav-tabs{float:right;margin-top:2px;}
+.tabbable .tab-content{padding:20px;overflow:visible;}
+
+/* AddMarket.jsp */
+.addmarket em{line-height:35px;padding:0 10px;}
+.addmarket .adm_box{overflow: hidden;width: 100%;padding:10px;border-bottom: 1px solid #f1f1f1;}
+.myeditor .j_lab70{float:left;}
+.edui-container{width:900px;float:left;}
+.pers_photo{margin:10px 0 0 80px;}
+.pers_photo img{width:120px;height:60px;}
+
+
+/* Lomanage.jsp */
+#ttbody{margin-bottom:10px;}
+.specialRequire{line-height:30px;font-size:14px;margin-bottom:10px;}
+#remarkSpan {overflow:hidden;display:inline-block;vertical-align: top;width: 90%;}
+#remarkSpan ol li{list-style-type:decimal;float:left;line-height:30px;margin-right:40px;}
+
+/* Checkalready.jsp */
+#checkalready{width:500px;border:none;margin:0 20px;}
+#checkalready td{border:none;}
+#checkalready  .td_tit{text-align:right;}
+#checkalready  .td_msg{text-align:left;}
+#checkalready th{border:none;}
+
+.system_edit_form{display:none;}
+
+/* Businessmanage_detail.jsp */
+.business_detail {width:1000px;margin:30px auto;}
+.business_detail .fa-star{color:#f5b055;}
+
+/* promoteset.jsp */
+#promoteset .h4{padding:0 10px;}
+
+/* Usermanage.jsp */
+.usermanage_wrap{overflow:hidden;width:100%;margin-bottom:10px;}
+.usermanage_wrap .usm_inner{width:45%;border:1px solid #bce8f1;}
+.usermanage_wrap .usm_inner .table{margin:0;}
+.usermanage_wrap .usm_inner .p_tit{background:#d9edf7;padding:0 10px;color:#3a87ad;line-height:36px;margin:0;}
+.usermanage_wrap .usm_cent{width:10%;padding:30px 0;text-align:center;}
+.usermanage_wrap .usm_cent .usm_cent_a{background:none;display:inline-block;padding:1px 10px;}
+.usermanage_wrap .usm_cent .usm_cent_a i{font-size:30px;color:#5cb85c;}
+
+
+/* Rolemanage.jsp */
+.rolemanage p{margin-bottom:10px;}
+
+/*invoice_bidiam.jsp */
+.invoice_wrap{border:1px solid #000;padding:10px 5px;}
+.invoice_div{padding:10px 0;overflow:hidden;}
+.invoice_top span{margin-right:5%;}
+.invoice_div label{}
+table.invoice_table{}
+table.invoice_table thead td{font-weight:normal;font-size:12px;white-space:pre-line;line-height:20px;}
+table.invoice_table td{border:1px solid #ddd;padding:0;}
+.invoice_table .invoice_tr td{text-align:left;}
+.invoice_table .invoice_tr .harf{display:inline-block;width:47%;}
+.invoice_trsp{}
+#tr_note td{padding:10px 5px;}
+
+.invoice_trdiv{width:90%;white-space:normal;line-height:25px;margin-top:8px;text-align:left;min-height:100px;}
+
+.harf1{display: inline-block;width:10%;}
+.harf2{display: inline-block;width:15%;}
+.harf3{display: inline-block;width:20%;}
+.harf4{display: inline-block;width:25%;}
+.harf5{display: inline-block;width:30%;}
+.harf6{display: inline-block;width:40%;}
+
+/* feedback.jsp */
+.feed_back_table{table-layout:fixed; word-wrap:break-word;}
+.feed_back_table td{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+/* buy step 地址   */
+
+.jbuy_inner{margin:0 auto;padding:0 0 20px;overflow:hidden;}
+.jbuy_inner .title i{color: #337ab7;}
+.jbuy_inner .title{background: #f5f5f5;color: #337ab7;line-height: 40px; padding: 0 10px;font-size:14px;overflow:hidden;}
+.jbuy_inner .title span{display:inline-block;width:50%;}
+.jbuy_inner .title .small-font{font-size:10px;padding:0 20px;color:#999999;}
+.store_lis{overflow:hidden;}
+.store_lis li p{overflow:hidden;font-size:14px;}
+.store_lis li{cursor:pointer;float:left;border:1px dashed #ccc;margin:10px;background:none;color:#fff;width:330px;height:200px;padding:20px;line-height:30px;font-size:14px;}
+.store_lis .on{box-shadow:inset 0 0 6px #1e73ea;border:1px solid #1e73ea;}
+.store_lis li label{float:Left;margin-bottom:0;line-height:30px;padding:0;}
+.store_lis li span{display:block;width:240px;float:left;}
+.store_lis li .store_lis_operate{position:absolute;bottom:5px;right:10px;}
+.store_lis li .store_lis_operate a{margin:0 5px;}
+.jbtn_change_addr{display:block;color:#fff;font-size:16px;text-align:center;}
+.jbtn_change_addr:hover{color:#fff;}
+.jbtn_change_addr i{display:block;font-size:90px;margin-top:20px;}
+.store_lis p{margin:0;}
+
+/*set address*/
+.shop_ordtail label{padding:0;}
+.jaddr_wrap{min-height:400px;padding-bottom:30px;}
+.jaddr_dl{position:relative;cursor:pointer;float:left;width:400px;height:220px;padding:30px 30px 10px;box-sizing:border-box;margin:10px;border:1px dashed #ccc;overflow:hidden;}
+.jaddr_dl .tip{position:absolute;top:-5px;right:30px;line-height:20px;font-size:10px;padding:4px 10px;border-radius:5px;background:#3680eb;color:#fff;}
+.jaddr_dl dt{text-align:left;height:auto;overflow:hidden;}
+.jaddr_dl dt label{display:inline-block;}
+.jaddr_dl i{color:#000;font-size:14px;}
+.jaddr_dl span{color:#000;font-weight:normal;display:block;font-size:14px;border-bottom:1px dashed #ccc;padding:10px;}
+.jaddr_dl dd{bottom:0;right:20px;line-height:40px;}
+.jaddr_dl dd p a{margin:5px;cursor: pointer;color:#000;}
+.jaddr_dl dd p a:hover{color:#deb76e;}
+.jaddr_dl .jbtn_change_addr{color:#000;line-height:30px;}
+
+
+
