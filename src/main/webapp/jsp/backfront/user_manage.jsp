@@ -15,84 +15,6 @@
     <script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/jquery.provincesCity.js"></script>
 	<script type="text/javascript" src="../../js/provincesdata.js"></script>
-<script type="text/javascript">
-var ary=new Array();
-$(function(){
-	$(".page_wrap").show();
-	loadData();
-	$("#cancel").click(function(){
-		$(".page_wrap").hide();
-		gotoPage("/jsp/backfront/KelaStoremanage.jsp");
-	});
-});
-function loadData(page) {	
-	if(page == null || page == undefined){
-		page = 1;
-	}
-
-	var pageSize = $(".page_sele option:selected").text();
-	paginate(10,1);
-}
-
-function add_Infor(){
-
-}
-function edit_Infor(){
-	beforeSave("areaId", "addrBox1", true);
-
-}
-function del_Infor(obj){
-	var param = new Array();
-}
-
-function initEditArea(obj){
-
-}
-// 递归调用   设置地区地址
-function setAreaAddress(parentCode, areaCode, str) {
-
-}
-function tab(i){ 
-	  $("#tbList").hide();
-	  $("#form1").show();
-	  $(".page_wrap").hide();
-}
-
-function beforeSave(id, str, isEdit) {
-	if(!isEdit){//新增
-		var selArry = $("input[id='"+str+"'] ~ select");
-		var se1  =  selArry.eq(0);
-		var se2  =  selArry.eq(1);
-		var se3  =  selArry.eq(2);
-		if ($(se1).val() && $(se1).val() != "请选择") {
-			if ($(se2).val() && $(se2).val() != "请选择") {
-				if ($(se3).val() && $(se3).val() != "请选择") {
-					$("#"+id).val($(se3).val());
-				} else {
-					$("#"+id).val($(se2).val());
-				}
-			} else {
-				$("#"+id).val($(se1).val());
-			}
-		}
-	}else{//编辑
-		var se1  =  $("#p_address > select:eq(0)");
-		var se2  =  $("#p_address > select:eq(1)");
-		var se3  =  $("#p_address > select:eq(2)");
-		if ($(se1).val() && $(se1).val() != "请选择") {
-			if ($(se2).val() && $(se2).val() != "请选择") {
-				if ($(se3).val() && $(se3).val() != "请选择") {
-					$("#"+id).val($(se3).val());
-				} else {
-					$("#"+id).val($(se2).val());
-				}
-			} else {
-				$("#"+id).val($(se1).val());
-			}
-		}
-	}
-}
-</script>
 </head>
 <body>
 <div id="jmain" id="exchange">
@@ -106,7 +28,6 @@ function beforeSave(id, str, isEdit) {
 	             <label class="j_lab">证书编号<!-- 证书编号-->：</label>
 	             <input name="cerno" type="text" size="20" class="span2" value="">
             </span>
-
 			<span class="dl">
             	<label class="j_lab">购买日期<!-- 购买日期-->： </label>
 		         <input name="startDate" type="text" class="span2 datetimepicker">
@@ -131,15 +52,18 @@ function beforeSave(id, str, isEdit) {
                 	<thead>
                 		<tr>
                 			<td>ID</td>
-                			<td>门店名称</td>
-                			<td>联系电话</td>
-                			<td>详细地址</td>
+                			<td>学生名</td>
+                			<td>性别</td>
+                			<td>年龄</td>
+							<td>状态</td>
+                			<td>创建时间</td>
+                			<td>修改时间</td>
                 			<td>操作</td>
                 		</tr>
                 	</thead>
                 	<tbody id="tbody">
 						<tr>
-							<td>1</td>
+							<td>2222</td>
 							<td>1</td>
 							<td>1</td>
 							<td>1</td>
@@ -217,5 +141,101 @@ function beforeSave(id, str, isEdit) {
       </div>
     </div>
 </div>
+<script type="text/javascript">
+	var ary=new Array();
+	$(function(){
+		$(".page_wrap").show();
+		loadData();
+		$("#cancel").click(function(){
+			$(".page_wrap").hide();
+			gotoPage("/jsp/backfront/KelaStoremanage.jsp");
+		});
+	});
+	function loadData(page) {
+		if(page == null || page == undefined){
+			page = 1;
+		}
+		var pageSize = $(".page_sele option:selected").text();
+		post('/student/get-list','',function(result) {
+			if (result.code == 200)
+			{
+				var text = '';
+				$.each(result.data, function(index,item){
+					text += "<tr>";
+					text += "<td>"+item['id']+"</td>";
+					text += "<td>"+item.name+"</td>";
+					text += "<td>"+item.sex+"</td>";
+					text += "<td>"+item.age+"</td>";
+					text += "<td>"+item.status+"</td>";
+					text += "<td>"+item.createTime+"</td>";
+					text += "<td>"+item.updateTime+"</td>";
+					text += '<td><a href="javascript:;"><i class="fa fa-edit"></i></a><a href="javascript:;" ><i class="fa fa-remove"></i></a> </td>';
+					text += "<tr>";
+				});
+				$("#tbody").html(text);
+			}
+		});
+		paginate(10,1);
+	}
+
+	function add_Infor(){
+
+	}
+	function edit_Infor(){
+		beforeSave("areaId", "addrBox1", true);
+
+	}
+	function del_Infor(obj){
+		var param = new Array();
+	}
+
+	function initEditArea(obj){
+
+	}
+	// 递归调用   设置地区地址
+	function setAreaAddress(parentCode, areaCode, str) {
+
+	}
+	function tab(i){
+		$("#tbList").hide();
+		$("#form1").show();
+		$(".page_wrap").hide();
+	}
+
+	function beforeSave(id, str, isEdit) {
+		if(!isEdit){//新增
+			var selArry = $("input[id='"+str+"'] ~ select");
+			var se1  =  selArry.eq(0);
+			var se2  =  selArry.eq(1);
+			var se3  =  selArry.eq(2);
+			if ($(se1).val() && $(se1).val() != "请选择") {
+				if ($(se2).val() && $(se2).val() != "请选择") {
+					if ($(se3).val() && $(se3).val() != "请选择") {
+						$("#"+id).val($(se3).val());
+					} else {
+						$("#"+id).val($(se2).val());
+					}
+				} else {
+					$("#"+id).val($(se1).val());
+				}
+			}
+		}else{//编辑
+			var se1  =  $("#p_address > select:eq(0)");
+			var se2  =  $("#p_address > select:eq(1)");
+			var se3  =  $("#p_address > select:eq(2)");
+			if ($(se1).val() && $(se1).val() != "请选择") {
+				if ($(se2).val() && $(se2).val() != "请选择") {
+					if ($(se3).val() && $(se3).val() != "请选择") {
+						$("#"+id).val($(se3).val());
+					} else {
+						$("#"+id).val($(se2).val());
+					}
+				} else {
+					$("#"+id).val($(se1).val());
+				}
+			}
+		}
+	}
+</script>
 </body>
 </html>

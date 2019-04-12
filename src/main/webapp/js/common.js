@@ -1,4 +1,4 @@
-var basePath = window.location.href.indexOf('bidiam')>0?'/bidiam':'bidiam';
+var basePath = window.location.href.indexOf('hstudent_war_exploded')>0?'/hstudent_war_exploded':'hstudent_war_exploded';
 var SUCCESS = 1;
 var FAIL = 0;
 
