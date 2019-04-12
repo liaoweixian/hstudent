@@ -1,16 +1,13 @@
 package com.student.controller;
 
-import com.student.model.User;
 import com.student.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,13 +36,6 @@ public class DemoController
         list.add("11111");
         list.add("是这个");
         return list;
-    }
-
-    @RequestMapping(value = "/get-user-list")
-    @ResponseBody
-    public List<User> getUserList()
-    {
-        return demoServiceImpl.getUserList();
     }
 
 
