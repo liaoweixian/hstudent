@@ -32,8 +32,10 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public boolean insert(Student student) {
-        studentMapper.insert(student);
-        return true;
+        int result = studentMapper.insert(student);
+        System.out.println("------------------------------------");
+        System.out.println(result);
+        return result > 0 ? true : false;
     }
 
     @Override

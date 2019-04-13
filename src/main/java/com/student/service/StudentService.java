@@ -14,6 +14,4 @@ public interface StudentService {
     boolean insert(Student student);
 
     boolean delete(int id);
-
-
 }

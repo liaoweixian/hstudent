@@ -21,29 +21,18 @@
 	<div class="order_search box-margin">
 		<p>
         	<span class="dl">
-	        	<label class="j_lab">货号<!-- 货号 -->：</label>
-	            <input name="goodsNo" type="text" id="text" class="span2" value="" size="20">
+	        	<label class="j_lab">用户名</label>
+	            <input name="username" type="text" id="text" class="span2" value="" size="20">
             </span>
-			<span class="dl">
-	             <label class="j_lab">证书编号<!-- 证书编号-->：</label>
-	             <input name="cerno" type="text" size="20" class="span2" value="">
-            </span>
-			<span class="dl">
-            	<label class="j_lab">购买日期<!-- 购买日期-->： </label>
-		         <input name="startDate" type="text" class="span2 datetimepicker">
-		        -
-		         <input name="endDate" type="text" class="span2 datetimepicker">
-	         </span>
-
 			<input type="button" class="btn btn-primary" value="搜 索" id="btnSerch" onclick="loadData();"><!-- 搜索-->
 		</p>
 	</div>
     <div class="tabbable">
         <div class="exchange_tab">
-            <label class="tip">门店管理</label>
+            <label class="tip">学生管理</label>
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab1" data-toggle="tab">门店列表</a></li>
-                <li><a href="#tab2" data-toggle="tab" onclick="init('addrBox2')">增加门店</a></li>
+                <li class="active"><a href="#tab1" data-toggle="tab">学生列表</a></li>
+                <li><a href="#tab2" data-toggle="tab" onclick="init('addrBox2')">增加学生</a></li>
             </ul>
         </div>
         <div class="tab-content">
@@ -62,51 +51,45 @@
                 		</tr>
                 	</thead>
                 	<tbody id="tbody">
-						<tr>
-							<td>2222</td>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-							<td>
-								<a href="javascript:;"><i class="fa fa-edit"></i></a>
-								<a href="javascript:;" ><i class="fa fa-remove"></i></a>
-							</td>
-						</tr>
+
                 	</tbody>
                 </table>
 				<!-- 分页  -->
 				<%@ include file="pagination.jsp"%>   
            <form id="form1" action="#" method="post" style="display:none">
 	            <fieldset> 
-	            <input  type="text"  id="storeId" name="storeId"  style="display:none" />
-	            <input  type="text"  id="createdUserId" name="storeId"  style="display:none" />
-	            <input  type="text"  id="createdTime" name="createdTime"  style="display:none" />
-	            <input  type="text"  id="updatedUserId" name="updatedUserId"  style="display:none" />
-	            <input  type="text"  id="updatedTime" name="updatedTime"  style="display:none" />
-	            <input 	type="text"  id="areaId" name="areaId" style="display:none" />
+	            <input  type="text"  id="id" name="id"  style="display:none" />
 	            <p>
-	              <label class="j_lab110">门店名称</label>
-	              <input class="text-input small-input" type="text" id="name" name="name" />
+	              <label class="j_lab110">学生名称</label>
+	              <input class="text-input small-input" type="text" id="usernmae" name="username" />
 	            </p>
-	            <p>
-	              <label class="j_lab110">电话</label>
-	              <input class="text-input medium-input" type="text" id="telephone" name="telephone" />
-	            </p>           
-	            <p id="p_address">
-	              <label class="j_lab110">地址</label>
-	              <input id="addrBox1" type="hidden"></input>
-	            </p>  
-	            <p>
-	              <label class="j_lab110">详细地址</label>
-	              <input class="text-input medium-input" type="text" id="address" name="address" />
-	            </p>  
+				<p>
+	               <label class="j_lab110">性别</label>
+					<select id="sex" name="sex">
+						<option value="1">男</option>
+						<option value="2">女</option>
+					</select>
+	            </p>
+				<p>
+					<label class="j_lab110">年龄</label>
+					<input class="text-input small-input" type="number" id="age" name="age" />
+				</p>
+				<p>
+					<label class="j_lab110">状态</label>
+					<select id="status" name="status">
+						<option value="1">开除</option>
+						<option value="2">毕业</option>
+						<option value="3">就读</option>
+						<option value="4">复读</option>
+					</select>
+	            </p>
 	            <p>
 	              	<input class="btn btn-primary" type="button" value="提交" onclick="edit_Infor()"/>
               		<input class="btn" type="button" value="取消" id="cancel"/>
 	            </p>
 	            </fieldset>
             <div class="clear"></div>
-          </form>
+           </form>
             </div>
            	<div class="tab-pane" id="tab2">
                 <div class="notification information png_bg" id="information">
@@ -114,23 +97,30 @@
       	  		</div>
 	          <form id="form2" action="#" method="post">
 	            <fieldset>
-	            <input 	type="text"  id="add_areaId" name="add_areaId" style="display:none" />
-	            <p>
-	              <label class="j_lab110">门店名称</label>
-	              <input class="text-input small-input" type="text" id="add_name" name="add_name" />
-	            </p>
-	            <p>
-	              <label class="j_lab110">电话</label>
-	              <input class="text-input medium-input" type="text" id="add_telephone" name="add_telephone" />
-	            </p>           
-	            <p>
-	              <label class="j_lab110">地址</label>
-	              <input id="addrBox2" type="hidden"></input>
-	            </p>  
-	            <p>
-	              <label class="j_lab110">详细地址</label>
-	              <input class="text-input medium-input" type="text" id="add_address" name="add_address" />
-	            </p>  
+					<p>
+						<label class="j_lab110">学生名称</label>
+						<input class="text-input small-input" type="text" id="add_usernmae" name="name" />
+					</p>
+					<p>
+						<label class="j_lab110">性别</label>
+						<select id="add_sex" name="sex">
+							<option value="1">男</option>
+							<option value="2">女</option>
+						</select>
+					</p>
+					<p>
+						<label class="j_lab110">年龄</label>
+						<input class="text-input small-input" type="number" id="add_age" name="age" />
+					</p>
+					<p>
+						<label class="j_lab110">状态</label>
+						<select id="add_status" name="status">
+							<option value="1">开除</option>
+							<option value="2">毕业</option>
+							<option value="3">就读</option>
+							<option value="4">复读</option>
+						</select>
+					</p>
 	            <p>
 	              <input class="btn btn-primary" type="button" value="提交" onclick="add_Infor()"/>
 	            </p>
@@ -157,7 +147,7 @@
 		}
 		var pageSize = $(".page_sele option:selected").text();
 		post('/student/get-list','',function(result) {
-			if (result.code == 200)
+			if (result.code == '200')
 			{
 				var text = '';
 				$.each(result.data, function(index,item){
@@ -179,7 +169,21 @@
 	}
 
 	function add_Infor(){
-
+		var add_name = $("#add_usernmae").val();
+		var add_sex = $("#add_sex").val();
+		var add_age = $("#add_age").val();
+		var add_status = $("#add_status").val();
+		if (typeof(add_name) == "undefined" || add_name == '') {
+			alert("请输入姓名");
+			return false;
+		}
+		post("/student/add",$("#form2").serializeArray(),function(result){
+			if (result.code == '200') {
+				gotoPage("/jsp/backfront/user_manage.jsp");
+			} else {
+				alert(result.data);
+			}
+		});
 	}
 	function edit_Infor(){
 		beforeSave("areaId", "addrBox1", true);

@@ -1,4 +1,4 @@
-var basePath = window.location.href.indexOf('hstudent_war_exploded')>0?'/hstudent_war_exploded':'hstudent_war_exploded';
+var basePath = window.location.href.indexOf('hstudent')>0?'/hstudent':'hstudent';
 var SUCCESS = 1;
 var FAIL = 0;
 
@@ -189,7 +189,7 @@ function json(args,type){
 
 //跳转页面
 function gotoPage(page){
-	window.location.href= page;
+	window.location.href= basePath+page;
 }
 
 //获取资源消息

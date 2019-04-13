@@ -1,7 +1,10 @@
 package com.student.controller;
 
 import com.student.service.DemoService;
+import com.student.util.ResponeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,7 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/demo")
@@ -52,5 +57,14 @@ public class DemoController
         return false;
     }
 
-
+    @RequestMapping(value = "/entity")
+    @ResponseBody
+    public  ResponseEntity<Map<String,Object>> entity()
+    {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("12321321");
+        strings.add("wwwwwwwwwwwwww");
+        return ResponeUtils.result("200",strings,HttpStatus.OK);
+    }
 }
