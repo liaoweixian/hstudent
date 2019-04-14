@@ -58,4 +58,32 @@ public class StudentController {
         }
         return response;
     }
+
+    @RequestMapping(value="/update",method = { RequestMethod.POST })
+    @ResponseBody
+    public ResponseEntity<Map<String,Object>> update(@ModelAttribute Student student)
+    {
+        if (student.getId() == null)
+        {
+            return ResponeUtils.result(ConstantDefault.RESULT_ERROR,"系统错误", HttpStatus.OK);
+        }
+        boolean result = studentServiceImpl.update(student);
+        ResponseEntity<Map<String,Object>> response = null;
+        if (result)
+        {
+            response = ResponeUtils.result(ConstantDefault.RESULT_SUCCESS,"编辑成功", HttpStatus.OK);
+        }
+        else
+        {
+            response = ResponeUtils.result(ConstantDefault.RESULT_ERROR,"编辑失败", HttpStatus.OK);
+        }
+        return response;
+    }
+
+    /*@RequestMapping(value="/delete/{}",method = { RequestMethod.GET })
+    @ResponseBody
+    public ResponseEntity<Map<String,Object>> delete()
+    {
+
+    }*/
 }

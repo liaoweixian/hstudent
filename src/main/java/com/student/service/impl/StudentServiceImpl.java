@@ -26,8 +26,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public boolean update(Student student) {
-        studentMapper.updateByPrimaryKey(student);
-        return true;
+        int result = studentMapper.updateByPrimaryKey(student);
+        return result > 0 ? true : false;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public boolean delete(int id) {
-        studentMapper.deleteByPrimaryKey(id);
-        return true;
+        int result = studentMapper.deleteByPrimaryKey(id);
+        return result > 1 ? true : false;
     }
 }
