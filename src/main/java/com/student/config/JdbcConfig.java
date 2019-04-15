@@ -1,11 +1,14 @@
 package com.student.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
@@ -33,13 +36,14 @@ public class JdbcConfig {
         return  dataSourceTransactionManager;
 
     }
-
+    
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean()
     {
         PathMatchingResourcePatternResolver pathMatchingResourcePatternResolver = new PathMatchingResourcePatternResolver();
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource());
+        sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
         try {
             sqlSessionFactoryBean.setMapperLocations(pathMatchingResourcePatternResolver.getResources("classpath:mapper/*.xml"));
         } catch (IOException e) {
@@ -47,7 +51,14 @@ public class JdbcConfig {
         }
         return sqlSessionFactoryBean;
     }
-
+    
+   /* @Bean
+    public SqlSessionTemplate sqlSessionFactoryTemplate()
+    {
+    	SqlSessionTemplate sessionTemplate = new SqlSessionTemplate((SqlSessionFactory) sqlSessionFactoryBean());
+    	return sessionTemplate;
+    }*/
+    
    /* @Bean
     public MapperScannerConfigurer mapperScannerConfigurer()
     {

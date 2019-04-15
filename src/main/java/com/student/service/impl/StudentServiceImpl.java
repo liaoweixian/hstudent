@@ -3,7 +3,11 @@ package com.student.service.impl;
 import com.student.dao.StudentMapper;
 import com.student.model.Student;
 import com.student.service.StudentService;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,9 +18,18 @@ public class StudentServiceImpl implements StudentService {
     @Resource
     private StudentMapper studentMapper;
 
+    @Resource
+    private SqlSessionFactory sqlSessionFactory;
+ 
+    
+    @Transactional
     @Override
     public List<Student> getList() {
-        return studentMapper.selectAll();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        mapper.selectAll();
+        return mapper.selectAll();
+        //return studentMapper.selectAll();
     }
 
     @Override

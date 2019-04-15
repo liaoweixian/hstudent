@@ -1,6 +1,8 @@
 package com.student.dao;
 
 import com.student.model.Student;
+import org.apache.ibatis.session.RowBounds;
+
 import java.util.List;
 
 public interface StudentMapper {
@@ -43,4 +45,6 @@ public interface StudentMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Student record);
+
+    List<Student> selectByRowBounds(Student student,RowBounds bounds);
 }
