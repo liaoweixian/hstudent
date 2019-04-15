@@ -121,6 +121,11 @@ function ajax(url,data,type,dataType,async,callback){
 		async:async,
 		dataType:dataType,
 		success:function(result){
+			if (result.code == '4000') {
+				gotoPage("/jsp/login.jsp");
+			} else {
+				callback(result);
+			}
 			/*if(result.code=="2"){//超时
 				gotoPage("/jsp/login.jsp");
 			}if(result.code=="0"&&result.message!=undefined){//系统错误
@@ -128,7 +133,6 @@ function ajax(url,data,type,dataType,async,callback){
 			}else{
 				callback(result);
 			}*/
-			callback(result);
 		}/*,
 		error:function(req,status,error){
 			//alert("Testing");

@@ -1,6 +1,7 @@
 package com.student.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.student.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 import org.springframework.web.servlet.RequestToViewNameTranslator;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator;
 
@@ -87,7 +89,13 @@ public class ServletContextConfig  extends WebMvcConfigurerAdapter
         return new DefaultRequestToViewNameTranslator();
     }
 
-   /* @Bean
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        System.out.println("-----------addInterceptors--------------");
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**");
+    }
+
+    /* @Bean
     public MultipartResolver multipartResolver()
     {
         return new StandardServletMultipartResolver();
