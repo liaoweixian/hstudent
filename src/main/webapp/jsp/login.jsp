@@ -85,7 +85,24 @@
         }
     })
     function login(){
-        gotoPage('jsp/backfront/index.jsp');
+        var userName = $.trim($("input[name='user_name']").val());
+        var password = $("input[name='user_pwd']").val();
+        if (password == "") {
+            $('.login h2').addClass('error').text('请输入密码');
+            return false;
+        }
+        if(userName == "")  {
+            $('.login h2').addClass('error').text('请输入用户名');
+            return  false;
+        }
+        var queryParam = 'account='+userName+'&password='+password;
+        post('/login/login',queryParam,function(result){
+            if (result.code == '200') {
+                gotoPage("/jsp/backfront/index.jsp");
+            } else {
+                alert(result.data);
+            }
+        })
     }
 </script>
 

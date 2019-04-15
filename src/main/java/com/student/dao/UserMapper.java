@@ -43,4 +43,11 @@ public interface UserMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(User record);
+
+    /**
+     *
+     * @param account
+     * @return
+     */
+    User selectByPrimaryAccount(String account);
 }
