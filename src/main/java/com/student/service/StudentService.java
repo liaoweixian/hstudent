@@ -1,11 +1,13 @@
 package com.student.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.student.model.Student;
 
 import java.util.List;
 
 public interface StudentService {
-    List<Student> getList();
+    PageInfo<Student> getList(Student student, Page page);
 
     Student getStudentById(int id);
 

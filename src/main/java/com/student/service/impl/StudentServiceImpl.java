@@ -1,5 +1,7 @@
 package com.student.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.student.dao.StudentMapper;
 import com.student.model.Student;
 import com.student.service.StudentService;
@@ -24,12 +26,12 @@ public class StudentServiceImpl implements StudentService {
     
     @Transactional
     @Override
-    public List<Student> getList() {
+    public PageInfo<Student> getList(Student student, Page page) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-        mapper.selectAll();
-        return mapper.selectAll();
-        //return studentMapper.selectAll();
+        List<Student> list = mapper.selectAll();
+        PageInfo<Student> pageInfo = new PageInfo<Student>(list);
+        return pageInfo;
     }
 
     @Override

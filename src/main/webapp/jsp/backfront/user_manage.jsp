@@ -142,15 +142,17 @@
 		});
 	});
 	function loadData(page) {
+		var pageSize = $(".page_sele option:selected").text();
 		if(page == null || page == undefined){
 			page = 1;
 		}
 		var pageSize = $(".page_sele option:selected").text();
-		post('/student/get-list','',function(result) {
+		var query = "startPage="+page;
+		post('/student/get-list',query,function(result) {
 			if (result.code == '200')
 			{
 				var text = '';
-				$.each(result.data, function(index,item){
+				$.each(result.data.list, function(index,item){
 					text += "<tr>";
 					text += "<td>"+item['id']+"</td>";
 					text += "<td>"+item.name+"</td>";
@@ -163,9 +165,9 @@
 					text += "<tr>";
 				});
 				$("#tbody").html(text);
+				paginate(result.data.size,result.data.pageNum);
 			}
 		});
-		paginate(10,1);
 	}
 
 	function add_Infor(){
